@@ -1,21 +1,25 @@
-name: 'sonar-quality-gate'
-description: 'This plugin will be intergate to CI/CD, get quality code of sonarqube and push report to merge request when has change.'
+name: "sonar-quality-gate"
+description: "This plugin will be intergate to CI/CD, get quality code of sonarqube and push report to merge request when has change."
 branding:
-  icon: 'award'  
-  color: 'green'
+  icon: "award"
+  color: "green"
 inputs:
-  login: 
-    description: 'The authentication token or login of a SonarQube user with Execute Analysis permission on the project.'
+  login:
+    description: "The authentication token or login of a SonarQube user with Execute Analysis permission on the project."
     required: true
-  skipScanner: 
-    description: 'skip scanner'
+  skipScanner:
+    description: "skip scanner"
+    required: false
+  analysisArgs:
+    description: "Sonar scanner parameters"
     required: false
 outputs:
   time: # id of output
-    description: 'The time we greeted you'
+    description: "The time we greeted you"
 runs:
-  using: 'docker'
-  image: 'action/Dockerfile'
+  using: "docker"
+  image: "action/Dockerfile"
   args:
     - -D sonar.login=${{ inputs.login }}
     - --skip-scanner=${{ inputs.skipScanner }}
+    - ${{ inputs.analysisArgs }}
