@@ -2,6 +2,7 @@ import chalk from "chalk";
 import figlet from "figlet";
 import yargs from "yargs";
 import path from "path";
+import { Log } from "../utils";
 
 declare type ArgsOutput = (string | number)[];
 
@@ -90,6 +91,7 @@ export function createOptions() {
     })
     .wrap(120)
     .locale("en").parseSync();
+  Log.info("raw args " + a)
   const argv: Arguments = a
   return argv;
 }
