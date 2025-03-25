@@ -1,6 +1,6 @@
 import axios from "axios";
 import { setupInterceptorsTo } from "./interceptors";
-import { Log } from "../utils/log";
+import { Log } from "../utils";
 
 setupInterceptorsTo(axios);
 export interface Response<T = unknown> {
@@ -41,7 +41,7 @@ export class Axios {
     paramters?: any,
     headers?: any
   ): Promise<R> {
-    Log.info("HEADERS " + headers);
+    Log.debug("HEADERS ", headers);
     const url = this.generateURL(api, paramters);
     const mergeHeadrs = { ...this.headers, ...headers };
     return axios.get<T, R, D>(url, { headers: mergeHeadrs });
