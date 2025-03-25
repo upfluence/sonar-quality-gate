@@ -173,6 +173,9 @@ export class Cli {
         sonarScannerArgv.push("-D" + this.argv.define[i]);
       }
     }
+
+    sonarScannerArgv.push("-Dsonar.projectKey=" + this.sonarProjectKey)
+
     Log.debug("Run sonar scanner", sonarScannerArgv);
     return this.exec.run(SONAR_SCANNER_CMD, sonarScannerArgv, callback);
   }
