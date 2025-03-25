@@ -41,7 +41,7 @@ export class Sonar {
     });
 
     const headers = {
-      Authorization: "Bearer " + opt.tokenKey,
+      Authorization: "Basic " + base64(opt.tokenKey),
     };
     this.http = new Axios({ host: this.host, headers: headers });
   }
@@ -108,4 +108,7 @@ export class Sonar {
     }
     return issueList;
   }
+}
+function base64(tokenKey: string) {
+  throw new Error("Function not implemented.");
 }
