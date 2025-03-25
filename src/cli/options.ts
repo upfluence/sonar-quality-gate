@@ -91,7 +91,7 @@ export function createOptions() {
     })
     .wrap(120)
     .locale("en").parseSync();
-  Log.info("raw args " + a)
+  Log.info("raw args " + JSON.stringify(a))
   const argv: Arguments = a
   return argv;
 }
