@@ -41,7 +41,7 @@ export class Sonar {
     });
 
     const headers = {
-      Authorization: "Basic c3F1XzA3NDc2YjZkNjA5OGRkZGU4YTMxZmM2MTU5ZDBhMWU1OGQxMjVjMjc6",
+      Authorization: "Basic " + Buffer.from(opt.tokenKey + ":", "utf8").toString("base64"),
     };
     this.http = new Axios({ host: this.host, headers: headers });
   }
