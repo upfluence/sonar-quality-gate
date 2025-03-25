@@ -65,7 +65,6 @@ export class Sonar {
 
   async getTaskStatus() {
     Log.debug("sonar get task status", SONAR_TASK_API);
-    Log.debug("HEADERS ", this.http.headers);
     const response = await this.http.get<entity.Tasks>(SONAR_TASK_API, {
       component: this.projectKey,
       onlyCurrents: true,
