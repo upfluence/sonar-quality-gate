@@ -28,7 +28,7 @@ export function createOptions() {
   );
   // eslint-disable-next-line  @typescript-eslint/no-var-requires
   const version = require(path.resolve(__dirname, "../../package.json")).version as string;
-  const argv: Arguments = yargs
+  const a = yargs
     .usage("Usage: $0 [options]")
     .help()
     .option("help", { alias: "h", group: "Global Options:" })
@@ -90,6 +90,6 @@ export function createOptions() {
     })
     .wrap(120)
     .locale("en").parseSync();
-
+  const argv: Arguments = a
   return argv;
 }
