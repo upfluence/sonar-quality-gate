@@ -56,6 +56,7 @@ export class Sonar {
     }
 
     Log.debug("sonar get quality status", SONAR_QUALITY_API);
+    Log.debug("HEADERS ", this.http.headers);
     const response = await this.http.get<entity.Qualitygate>(
       SONAR_QUALITY_API,
       parameters

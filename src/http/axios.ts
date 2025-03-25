@@ -41,7 +41,6 @@ export class Axios {
     paramters?: any,
     headers?: any
   ): Promise<R> {
-    Log.debug("HEADERS ", headers);
     const url = this.generateURL(api, paramters);
     const mergeHeadrs = { ...this.headers, ...headers };
     return axios.get<T, R, D>(url, { headers: mergeHeadrs });
