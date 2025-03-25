@@ -131,7 +131,7 @@ export class Cli {
     });
 
     let gitMerge: GitMerge;
-    if (this.argv.provide == Provide.Github || process.env.GITHUB_ACTION ) {
+    if (this.argv.provide == Provide.Github || process.env.GITHUB_ACTION) {
       gitMerge = new GithubMerge({
         host: this.gitURL,
         token: this.gitToken,
@@ -165,8 +165,10 @@ export class Cli {
 
   private runSonarScanner(callback: () => void) {
     const sonarScannerArgv = [];
+    Log.info("define " + this.argv.define)
     if (this.argv.define) {
       for (const i in this.argv.define) {
+        Log.info("define part " + this.argv.define[i])
         sonarScannerArgv.push("-D" + this.argv.define[i]);
       }
     }
