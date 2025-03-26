@@ -35,8 +35,8 @@ runs:
     - name: Run Sonar Quality Gate
       shell: bash
       run: |
-        docker build -t quality-gate action/Dockerfile &&  docker run --rm \
+        docker run --rm \
           -e SONAR_TOKEN=${{ inputs.login }} \
-          quality-gate \
+          upfluence/sonar-quality-gate-action:latest \
           -Dsonar.projectKey=my_project \
           ${{ inputs.analysisArgs }}
