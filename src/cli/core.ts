@@ -167,7 +167,6 @@ export class Cli {
     const sonarScannerArgv = [];
     if (this.argv.define) {
       for (const i in this.argv.define) {
-        Log.info("define part " + this.argv.define[i])
         sonarScannerArgv.push("-D" + this.argv.define[i]);
       }
     }
