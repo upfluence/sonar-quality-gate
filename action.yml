@@ -38,5 +38,4 @@ runs:
         docker run --rm \
           -e SONAR_TOKEN=${{ inputs.login }} \
           upfluence/sonar-quality-gate-action:0.0.1 \
-          -Dsonar.projectKey=my_project \
           ${{ inputs.analysisArgs }}
