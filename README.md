@@ -164,5 +164,20 @@ $ husky install && chmod ug+x .husky/*
 $ npm run start:dev
 ```
 
+## Push new version of the action
+
+The action image is a public image hosted in our docker hub.
+
+Build the docker image:
+
+```
+docker build -t upfluence/sonar-quality-gate:latest .
+```
+
+And push it:
+```
+docker push upfluence/sonar-quality-gate:latest
+```
+
 ## License
 MIT. See LICENSE.txt.
