@@ -1,4 +1,4 @@
-FROM florianupf/sonar-quality-gate:0.0.14
+FROM upfluence/sonar-quality-gate:latest
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
