@@ -165,8 +165,6 @@ export class Cli {
 
   private runSonarScanner(callback: () => void) {
     const sonarScannerArgv = [];
-    Log.info("define " + this.argv.define)
-    Log.info("url " + process.env.SONAR_URL)
     if (this.argv.define) {
       for (const i in this.argv.define) {
         Log.info("define part " + this.argv.define[i])

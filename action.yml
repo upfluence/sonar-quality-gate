@@ -11,7 +11,7 @@ inputs:
     description: "skip scanner"
     required: false
   analysisArgs:
-    description: "Sonar scanner parameters"
+    description: "Sonar scanner arguments"
     required: false
 outputs:
   time: # id of output

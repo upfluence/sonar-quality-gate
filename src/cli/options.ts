@@ -2,7 +2,6 @@ import chalk from "chalk";
 import figlet from "figlet";
 import yargs from "yargs";
 import path from "path";
-import { Log } from "../utils";
 
 declare type ArgsOutput = (string | number)[];
 
@@ -29,7 +28,7 @@ export function createOptions() {
   );
   // eslint-disable-next-line  @typescript-eslint/no-var-requires
   const version = require(path.resolve(__dirname, "../../package.json")).version as string;
-  const a = yargs
+  const argv: Arguments = yargs
     .usage("Usage: $0 [options]")
     .help()
     .option("help", { alias: "h", group: "Global Options:" })
@@ -91,7 +90,6 @@ export function createOptions() {
     })
     .wrap(120)
     .locale("en").parseSync();
-  Log.info("raw args " + JSON.stringify(a))
-  const argv: Arguments = a
+
   return argv;
 }
