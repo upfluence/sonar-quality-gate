@@ -70,7 +70,7 @@ export function createOptions() {
     .option("sonar", {
       default: {},
       desc: "Config sonar \n" +
-        "  --sonar.url Sonarqube server URL. Default: $SONAR_URL or sonar.host.url in file sonar-project.properties.\n" +
+        "  --sonar.url Sonarqube server URL. Default: $SONAR_HOST_URL or sonar.host.url in file sonar-project.properties.\n" +
         "  --sonar.token The authentication token of a SonarQube user with Execute Analysis permission on the project. Default: $SONAR_TOKEN\n" +
         "  --sonar.project_key Sonar project key. Default: sonar.projectKey in file sonar-project.properties\n",
       group: "Global Options:",

@@ -46,7 +46,7 @@ Global Options:
                  --git.merge_id Git merge request IID. Default: $CI_MERGE_REQUEST_IID
                                                                                                            [default: {}]
       --sonar    Config sonar
-                 --sonar.url Sonarqube server URL. Default: $SONAR_URL or sonar.host.url in file
+                 --sonar.url Sonarqube server URL. Default: $SONAR_HOST_URL or sonar.host.url in file
                  sonar-project.properties.
                  --sonar.token The authentication token of a SonarQube user with Execute Analysis permission on the
                  project. Default: $SONAR_TOKEN
@@ -70,7 +70,7 @@ GIT_TOKEN=""
 CI_PROJECt_ID=""
 CI_MERGE_REQUEST_IID=""
 
-SONAR_URL=""
+SONAR_HOST_URL=""
 SONAR_TOKEN=""
 ```
 and has file `sonar-project.properties`:
@@ -145,12 +145,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
           GIT_URL: "https://api.github.com"
           GIT_TOKEN: ${{ secrets.GIT_TOKEN }} 
-          SONAR_URL: ${{ secrets.SONAR_URL }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
         with:
           login:  ${{ secrets.SONAR_TOKEN }}
-          url: ${{ secrets.SONAR_URL }}
+          url: ${{ secrets.SONAR_HOST_URL }}
           projectKey: ${{ secrets.SONAR_PROJECT_KEY }}
 ```
 

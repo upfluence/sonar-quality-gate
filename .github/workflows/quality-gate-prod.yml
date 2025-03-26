@@ -2,7 +2,7 @@ name: Validate
 on:
   pull_request:
     branches:
-      - 'test-sonar/**'
+      - "test-sonar/**"
 
 jobs:
   build:
@@ -12,17 +12,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2.3.4
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
+          fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
       - name: Set up Sonar Quality Gate
         uses: dieuhd/sonar-quality-gate@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GIT_URL: "https://api.github.com"
-          GIT_TOKEN: ${{ secrets.GIT_TOKEN }} 
-          SONAR_URL: ${{ secrets.SONAR_URL }}
+          GIT_TOKEN: ${{ secrets.GIT_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
         with:
-          login:  ${{ secrets.SONAR_TOKEN }}
-          url: ${{ secrets.SONAR_URL }}
+          login: ${{ secrets.SONAR_TOKEN }}
+          url: ${{ secrets.SONAR_HOST_URL }}
           projectKey: ${{ secrets.SONAR_PROJECT_KEY }}

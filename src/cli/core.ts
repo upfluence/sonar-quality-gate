@@ -15,7 +15,7 @@ declare global {
     interface ProcessEnv {
       GIT_TOKEN: string;
       GIT_URL: string;
-      SONAR_URL: string;
+      SONAR_HOST_URL: string;
       SONAR_TOKEN: string;
       CI_PROJECT_ID: string;
       CI_COMMIT_SHA: string;
@@ -54,7 +54,7 @@ export class Cli {
     this.gitToken = this.argv.git.token ? this.argv.git.token : process.env.GIT_TOKEN;
     this.gitProjectID = this.getProjectID(this.argv);
     this.gitMergeID = this.getMergeID(this.argv);
-    this.sonarURL = this.argv.sonar.url ? this.argv.sonar.url : process.env.SONAR_URL;
+    this.sonarURL = this.argv.sonar.url ? this.argv.sonar.url : process.env.SONAR_HOST_URL;
     this.sonarToken = this.argv.sonar.token ? this.argv.sonar.token : process.env.SONAR_TOKEN;
     this.sonarProjectKey = this.argv.sonar.project_key ? this.argv.sonar.project_key : process.env.SONAR_PROJECT_KEY || "";
 
