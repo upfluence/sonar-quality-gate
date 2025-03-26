@@ -90,12 +90,12 @@ export class GithubMerge extends Github implements GitMerge {
         body: params[i].comment
       });
     }
-    if (comments.length == 0){
+    if (comments.length == 0) {
       return null;
     }
 
     const data = {
-      body: "",
+      body: "Quality gate review",
       event: "COMMENT",
       comments: comments
     };
